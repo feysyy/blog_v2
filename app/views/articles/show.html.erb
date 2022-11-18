@@ -1,0 +1,15 @@
+<p> <%= @article_show.id %> </p>
+
+<div>
+  <h1> Name: <%= @article_show.name %> </h1>
+  <p> Text: <%= @article_show.body %> </p>
+</div>
+<br>
+<p> <%= link_to "Home", articles_path %> </p>
+<p> <%= link_to "Edit", edit_article_path %> </p>
+<p> 
+  <%= link_to "Delete this article", article_path, data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %> 
+</p>
