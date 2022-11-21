@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   end 
   
   def update
-    update_article.Article.find(params[:id])
+    update_article = Article.find(params[:id])
 
     if update_article.update(article_params)
       redirect_to update_article
