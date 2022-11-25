@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   #   get '/articles' => 'articles#index'
   # end
   
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   root "articles#index"
 end
