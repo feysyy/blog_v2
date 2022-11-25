@@ -1,8 +1,8 @@
-<p> <%= @article_show.id %> </p>
+<p> <%= @article.id %> </p>
 
 <div>
-  <h1> Name: <%= @article_show.name %> </h1>
-  <p> Text: <%= @article_show.body %> </p>
+  <h1> Name: <%= @article.name %> </h1>
+  <p> Text: <%= @article.body %> </p>
 </div>
 <br>
 <p> <%= link_to "Home", articles_path %> </p>
@@ -13,3 +13,14 @@
     turbo_confirm: "Are you sure?"
   } %> 
 </p>
+<%= link_to "Add comment", new_article_comment_path(@article.id) %>
+<div>
+  <% @article_comments.each do |c| %>
+    <div> <%= c.id %></div>
+    <div><%= c.body %></div>
+    <div>
+      <%= link_to 'Edit Comment', edit_article_comment_path(@article.id, c.id) %>
+      <%= link_to 'Delete Comment', article_comment_path(@article.id, c.id), data: {turbo_method: :delete, turbo_confirm: "Continue to delete" } %>
+    </div>
+  <% end %>
+</div>
